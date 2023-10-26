@@ -18,17 +18,17 @@ function dragStart(e) {
   e.dataTransfer.setData('text/html', this.innerHTML);
 }
 
-// Drag end event
+
 function dragEnd() {
   selectedImage = null;
 }
 
-// Allow dropping on the parent div
+
 const parent = document.getElementById('parent');
 parent.addEventListener('dragover', allowDrop);
 parent.addEventListener('drop', drop);
 
-// Allow drop event
+
 function allowDrop(e) {
   e.preventDefault();
 }
@@ -37,7 +37,7 @@ function allowDrop(e) {
 function drop(e) {
   e.preventDefault();
   if (selectedImage) {
-    // Replace the target div's HTML with the selected div's HTML
+    
     this.innerHTML = e.target.innerHTML;
     e.target.innerHTML = e.dataTransfer.getData('text/html');
   }
